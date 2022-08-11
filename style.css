@@ -3,7 +3,6 @@ html {
 }
 
 #container {
-    margin: 10px auto;
     width: 500px;
 }
 
@@ -14,14 +13,10 @@ html {
 #img-board {
     width: 400px;
     height: 200px;
-    padding: 0;
 }
 
 #image {}
 
-.card-body {
-    padding: 10px;
-}
 
 #title {
     font-size: 0.75rem;
