@@ -1,0 +1,28 @@
+html {
+    box-sizing: border-box;
+}
+
+#container {
+    margin: 10px auto;
+    width: 500px;
+}
+
+.cont {
+    border: 1px solid black;
+}
+
+#img-board {
+    width: 400px;
+    height: 200px;
+    padding: 0;
+}
+
+#image {}
+
+.card-body {
+    padding: 10px;
+}
+
+#score-board {
+    width: 100px;
+}
