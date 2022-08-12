@@ -6,9 +6,9 @@ html {
     width: 500px;
 }
 
-.cont {
+/* .cont {
     border: 1px solid black;
-}
+} */
 
 #img-board {
     width: 400px;
@@ -22,6 +22,4 @@ html {
     font-size: 0.75rem;
 }
 
-#score-board {
-    width: 100px;
-}
+#score-board {}
