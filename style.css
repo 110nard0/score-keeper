@@ -10,7 +10,7 @@ html {
     border: 1px solid black;
 } */
 
-#img-board {
+#imgBoard {
     width: 400px;
     height: 200px;
 }
@@ -22,4 +22,12 @@ html {
     font-size: 0.75rem;
 }
 
-#score-board {}
+#scoreBoard {}
+
+#rule {
+    font-size: 0.9rem;
+}
+
+select option {
+    font-size: 0.8rem;
+}
