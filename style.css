@@ -6,23 +6,14 @@ html {
     width: 500px;
 }
 
-/* .cont {
-    border: 1px solid black;
-} */
-
 #imgBoard {
     width: 400px;
     height: 200px;
 }
 
-#image {}
-
-
 #title {
     font-size: 0.75rem;
 }
-
-#scoreBoard {}
 
 #rule {
     font-size: 0.9rem;
