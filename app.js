@@ -1,2 +1,2 @@
 const scoreOne = document.querySelector("#one");
-const scoreTwo = document.querySelector("two")
+const scoreTwo = document.querySelector("#two");
