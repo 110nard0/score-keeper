@@ -9,11 +9,11 @@ const buttonThree = document.querySelector('#reset');
 
 // add event to select input to set highest possible score
 const highScore = board.elements.highScore;
-let highestScore;
+let highestScore = 5;
 
 highScore.addEventListener('change', (e) => {
-	highestScore = e.target.value;
-	console.log(e.target.value);
+	highestScore = +(e.target.value);
+	reset();
 })
 
 // add click event to player 1 score
@@ -22,8 +22,7 @@ buttonOne.addEventListener('click', () => {
 	newScoreOne++;
 	scoreOne.innerText = newScoreOne;
 
-	if (scoreOne.innerText === highestScore) {
-		console.log('i')
+	if (newScoreOne === highestScore) {
 		scoreOne.classList.add('text-success');
 		scoreTwo.classList.add('text-danger');
 		disableButton();
@@ -36,7 +35,7 @@ buttonTwo.addEventListener('click', () => {
 	newScoreTwo++;
 	scoreTwo.innerText = newScoreTwo;
 
-	if (scoreTwo.innerText === highestScore) {
+	if (newScoreTwo === highestScore) {
 		scoreTwo.classList.add('text-success');
 		scoreOne.classList.add('text-danger');
 		disableButton();
@@ -45,23 +44,22 @@ buttonTwo.addEventListener('click', () => {
 
 
 // add click event to reset button
-buttonThree.addEventListener('click', () => {
-	scoreOne.innerText = 0;
-	scoreOne.classList.add('text-dark');
-	buttonOne.classList.remove('disabled');
-	newScoreOne = 0;
-
-	scoreTwo.innerText = 0;
-	scoreTwo.classList.add('text-dark');
-	buttonTwo.classList.remove('disabled');
-	newScoreTwo = 0;
-
-	highScore.value = 5;
-})
-
+buttonThree.addEventListener('click', reset)
 
 
 function disableButton() {
 	buttonOne.classList.add('disabled');
 	buttonTwo.classList.add('disabled');
+}
+
+function reset() {
+	newScoreOne = 0;
+	scoreOne.innerText = 0;
+	scoreOne.classList.remove('text-success', 'text-danger');
+	buttonOne.classList.remove('disabled');
+
+	newScoreTwo = 0;
+	scoreTwo.innerText = 0;
+	scoreTwo.classList.remove('text-success', 'text-danger');
+	buttonTwo.classList.remove('disabled');
 }
