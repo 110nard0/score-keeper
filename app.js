@@ -7,73 +7,36 @@ const buttonTwo = document.querySelector('#playerTwo');
 const buttonThree = document.querySelector('#reset');
 
 
-// add event to select input to set highest possible score
-const highScore = board.elements.highScore;
-let highestScore;
 
-highScore.addEventListener('change', (e) => {
-	highestScore = e.target.value;
-	console.log(e.target.value);
-})
+let p1Score = 0;
+let p2Score = 0;
+let winningScore = 5;
+let isGameOver = false;
 
-// add click event to player 1 score
-let newScoreOne = 0;
 buttonOne.addEventListener('click', () => {
-	newScoreOne++;
-	scoreOne.innerText = newScoreOne;
-
-	if (scoreOne.innerText === highestScore) {
-		console.log('i')
-		scoreOne.classList.add('text-success');
-		scoreTwo.classList.add('text-danger');
-		disableButton();
+	if (!isGameOver) {
+		p1Score++;
+		if (p1Score === winningScore) {
+			isGameOver = true;
+		}
+		scoreOne.textContent = p1Score;
 	}
 })
 
-// add click event to player 2 score
-let newScoreTwo = 0;
 buttonTwo.addEventListener('click', () => {
-	newScoreTwo++;
-	scoreTwo.innerText = newScoreTwo;
-
-	if (scoreTwo.innerText === highestScore) {
-		scoreTwo.classList.add('text-success');
-		scoreOne.classList.add('text-danger');
-		disableButton();
+	if (!isGameOver) {
+		p2Score++;
+		if (p2Score === winningScore) {
+			isGameOver = true;
+		}
+		scoreTwo.textContent = p2Score;
 	}
 })
 
-// add click event to reset button
 buttonThree.addEventListener('click', () => {
-	scoreOne.innerText = 0;
-	scoreOne.classList.add('text-dark');
-	buttonOne.classList.remove('disabled');
-	newScoreOne = 0;
-
-	scoreTwo.innerText = 0;
-	scoreTwo.classList.add('text-dark');
-	buttonTwo.classList.remove('disabled');
-	newScoreTwo = 0;
-
-	highScore.value = 5;
+	isGameOver = false;
+	p1Score = 0;
+	p2Score = 0;
+	scoreOne.textContent = 0;
+	scoreTwo.textContent = 0;
 })
-
-
-
-function disableButton() {
-	buttonOne.classList.add('disabled');
-	buttonTwo.classList.add('disabled');
-}
-
-
-let player = [
-	playerOne: {
-		button: buttonOne,
-		score: scoreOne,
-	},
-
-	playerTwo: {
-		button: buttonTwo,
-		score: scoreTwo,
-	}
-]
