@@ -43,7 +43,6 @@ buttonTwo.addEventListener('click', () => {
 	}
 })
 
-
 // add click event to reset button
 buttonThree.addEventListener('click', () => {
 	scoreOne.innerText = 0;
@@ -65,3 +64,16 @@ function disableButton() {
 	buttonOne.classList.add('disabled');
 	buttonTwo.classList.add('disabled');
 }
+
+
+let player = [
+	playerOne: {
+		button: buttonOne,
+		score: scoreOne,
+	},
+
+	playerTwo: {
+		button: buttonTwo,
+		score: scoreTwo,
+	}
+]
