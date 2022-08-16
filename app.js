@@ -16,20 +16,6 @@ const winningScoreSelect = document.querySelector('#highScore');
 let winningScore = 5;
 let isGameOver = false;
 
-function updateScores(player, opponent) {
-	if (!isGameOver) {
-		player.score++;
-		if (player.score === winningScore) {
-			isGameOver = true;
-			player.display.classList.add('text-success');
-			opponent.display.classList.add('text-danger');
-			player.button.disabled = true;
-			opponent.button.disabled = true;
-		}
-		player.display.textContent = player.score;
-	}
-}
-
 player1.button.addEventListener('click', () => {
 	updateScores(player1, player2)
 })
@@ -44,6 +30,20 @@ winningScoreSelect.addEventListener('change', function () {
 })
 
 buttonThree.addEventListener('click', reset)
+
+function updateScores(player, opponent) {
+	if (!isGameOver) {
+		player.score++;
+		if (player.score === winningScore) {
+			isGameOver = true;
+			player.display.classList.add('text-success');
+			opponent.display.classList.add('text-danger');
+			player.button.disabled = true;
+			opponent.button.disabled = true;
+		}
+		player.display.textContent = player.score;
+	}
+}
 
 function reset() {
 	isGameOver = false;
