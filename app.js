@@ -5,8 +5,7 @@ const board = document.querySelector('form');
 const buttonOne = document.querySelector('#playerOne');
 const buttonTwo = document.querySelector('#playerTwo');
 const buttonThree = document.querySelector('#reset');
-
-
+const winningScoreSelect = document.querySelector('#highScore');
 
 let p1Score = 0;
 let p2Score = 0;
@@ -33,10 +32,17 @@ buttonTwo.addEventListener('click', () => {
 	}
 })
 
-buttonThree.addEventListener('click', () => {
+winningScoreSelect.addEventListener('change', function () {
+	winningScore = +(this.value);
+	reset();
+})
+
+buttonThree.addEventListener('click', reset)
+
+function reset() {
 	isGameOver = false;
 	p1Score = 0;
 	p2Score = 0;
 	scoreOne.textContent = 0;
 	scoreTwo.textContent = 0;
-})
+}
