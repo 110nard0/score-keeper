@@ -10,13 +10,13 @@ let newScoreTwo = 0;
 
 
 //select highest possible score playable 
-const highScore =
+// const highScore = ;
 
-	//add click event to player 1 score
-	buttonOne.addEventListener('click', () => {
-		newScoreOne++;
-		scoreOne.innerText = newScoreOne;
-	})
+//add click event to player 1 score
+buttonOne.addEventListener('click', () => {
+	newScoreOne++;
+	scoreOne.innerText = newScoreOne;
+})
 
 //add click event to player 2 score
 buttonTwo.addEventListener('click', () => {
@@ -24,6 +24,8 @@ buttonTwo.addEventListener('click', () => {
 	scoreTwo.innerText = newScoreTwo;
 })
 
+//add click event to reset button
 buttonThree.addEventListener('click', () => {
-	console.log("sup");
+	buttonOne.classList.add('disabled');
+	buttonTwo.classList.add('disabled');
 })
