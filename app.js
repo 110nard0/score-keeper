@@ -1,35 +1,41 @@
-const scoreOne = document.querySelector('#one');
-const scoreTwo = document.querySelector('#two');
+const player1 = {
+	score: 0,
+	display: document.querySelector('#one'),
+	button: document.querySelector('#playerOne')
+}
 
-const board = document.querySelector('form');
-const buttonOne = document.querySelector('#playerOne');
-const buttonTwo = document.querySelector('#playerTwo');
+const player2 = {
+	score: 0,
+	display: document.querySelector('#two'),
+	button: document.querySelector('#playerTwo')
+}
+
+
 const buttonThree = document.querySelector('#reset');
 const winningScoreSelect = document.querySelector('#highScore');
-
-let p1Score = 0;
-let p2Score = 0;
 let winningScore = 5;
 let isGameOver = false;
 
-buttonOne.addEventListener('click', () => {
+function updateScores(player, opponent) {
 	if (!isGameOver) {
-		p1Score++;
-		if (p1Score === winningScore) {
+		player.score++;
+		if (player.score === winningScore) {
 			isGameOver = true;
+			player.display.classList.add('text-success');
+			opponent.display.classList.add('text-danger');
+			player.button.disabled = true;
+			opponent.button.disabled = true;
 		}
-		scoreOne.textContent = p1Score;
+		player.display.textContent = player.score;
 	}
+}
+
+player1.button.addEventListener('click', () => {
+	updateScores(player1, player2)
 })
 
-buttonTwo.addEventListener('click', () => {
-	if (!isGameOver) {
-		p2Score++;
-		if (p2Score === winningScore) {
-			isGameOver = true;
-		}
-		scoreTwo.textContent = p2Score;
-	}
+player2.button.addEventListener('click', () => {
+	updateScores(player2, player1)
 })
 
 winningScoreSelect.addEventListener('change', function () {
@@ -41,8 +47,10 @@ buttonThree.addEventListener('click', reset)
 
 function reset() {
 	isGameOver = false;
-	p1Score = 0;
-	p2Score = 0;
-	scoreOne.textContent = 0;
-	scoreTwo.textContent = 0;
+	for (let p of [player1, player2]) {
+		p.score = 0;
+		p.display.textContent = 0;
+		p.display.classList.remove('text-success', 'text-danger');
+		p.button.disabled = false;
+	}
 }
